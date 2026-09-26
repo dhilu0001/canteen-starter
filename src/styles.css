@@ -1,0 +1,282 @@
+/* ═══════════════════════════════════════════════════════════════
+   Styling is done for you. You're here to learn React, not to
+   fight CSS.
+
+   Want to make it yours? Change --accent and nothing else breaks.
+   Try:  #c2410c (orange)   #15803d (green)   #b91c1c (red)
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --ground:     #f2f3f6;
+  --surface:    #ffffff;
+  --surface-2:  #fafbfc;
+  --ink:        #14181f;
+  --ink-soft:   #48515f;
+  --muted:      #78818f;
+  --line:       #e4e7ec;
+  --line-soft:  #f0f2f5;
+  --accent:     #d97706;
+  --accent-ink: #ffffff;
+  --accent-dim: #fdf3e3;
+  --veg:        #1a8a4a;
+  --nonveg:     #c1440e;
+
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(20, 24, 31, 0.05),
+            0 8px 24px -12px rgba(20, 24, 31, 0.12);
+
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ground:     #0e1116;
+    --surface:    #171b22;
+    --surface-2:  #1c212a;
+    --ink:        #e7eaf0;
+    --ink-soft:   #b0b8c4;
+    --muted:      #838d9c;
+    --line:       #262d38;
+    --line-soft:  #1e242d;
+    --accent:     #f0a13c;
+    --accent-ink: #14181f;
+    --accent-dim: #2a2113;
+    --veg:        #35c477;
+    --nonveg:     #f0714a;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+              0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme='dark'] {
+  --ground:     #0e1116;
+  --surface:    #171b22;
+  --surface-2:  #1c212a;
+  --ink:        #e7eaf0;
+  --ink-soft:   #b0b8c4;
+  --muted:      #838d9c;
+  --line:       #262d38;
+  --line-soft:  #1e242d;
+  --accent:     #f0a13c;
+  --accent-ink: #14181f;
+  --accent-dim: #2a2113;
+  --veg:        #35c477;
+  --nonveg:     #f0714a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+/* ── Shell ── */
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-inline: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--surface);
+}
+
+.header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.cart-pill {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 6px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Search ── */
+.search-row {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface-2);
+}
+
+.search {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease;
+}
+
+.search::placeholder { color: var(--muted); }
+.search:hover { border-color: var(--muted); }
+
+.search:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+/* ── Menu list ── */
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  transition: background 0.12s ease;
+}
+
+.item:last-child { border-bottom: none; }
+.item:hover { background: var(--surface-2); }
+
+.item-name {
+  flex: 1;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+.item-price {
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The veg / non-veg marker you see on every Indian menu:
+   a square outline with a dot inside. */
+.dot {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  border-radius: 3px;
+  border: 1.5px solid currentColor;
+  position: relative;
+}
+
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dot.veg    { color: var(--veg); }
+.dot.nonveg { color: var(--nonveg); }
+
+/* ── Buttons ── */
+button {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 7px 15px;
+  border-radius: var(--radius);
+  transition: border-color 0.15s ease, background 0.15s ease,
+              transform 0.1s ease;
+}
+
+button:hover { border-color: var(--muted); }
+button:active { transform: scale(0.97); }
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+button.add {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+button.add:hover { filter: brightness(1.08); border-color: transparent; }
+
+/* ── Footer ── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px;
+  border-top: 1px solid var(--line);
+  position: sticky;
+  bottom: 0;
+  background: var(--surface);
+}
+
+.footer span { color: var(--muted); font-size: 0.92rem; }
+
+.footer strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  margin-right: auto;
+  margin-left: 4px;
+}
+
+/* ── Empty / placeholder states ── */
+.empty {
+  padding: 40px 22px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ── Phone ── */
+@media (max-width: 440px) {
+  .item, .header, .footer, .search-row, .empty { padding-inline: 16px; }
+  .header h1 { font-size: 1.2rem; }
+}

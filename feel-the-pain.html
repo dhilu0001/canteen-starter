@@ -1,0 +1,105 @@
+<!doctype html>
+<!--
+  ─────────────────────────────────────────────────────────────
+   11:50 — FEEL THE PROBLEM FIRST
+
+   Open this file directly in a browser. No build, no install.
+   This is plain HTML. No React anywhere.
+
+   THREE TASKS. Do them in order and notice how you feel.
+
+   1. Change "Masala Dosa" to your favourite dish.
+        → easy.
+
+   2. Add a FOURTH dish. Copy one whole <article> block,
+      paste it, change the name and price.
+        → annoying.
+
+   3. The canteen raises every price by ₹5.
+      Change all four.
+        → now imagine there are eighty dishes.
+
+   That third one is the real job. Menus change. Prices change.
+   Someone has to do it, every week, without missing one.
+
+   Keep that feeling. We fix it at 12:10.
+  ─────────────────────────────────────────────────────────────
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Canteen — the hard way</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f2f3f6; margin: 0; color: #14181f; }
+    .app { max-width: 520px; margin: 0 auto; background: #fff; min-height: 100vh;
+           border-inline: 1px solid #e4e7ec; }
+    .header { display: flex; justify-content: space-between; align-items: center;
+              padding: 20px 22px; border-bottom: 1px solid #e4e7ec; }
+    .header h1 { font-size: 1.3rem; margin: 0; letter-spacing: -0.02em; }
+    .pill { background: #d97706; color: #fff; padding: 6px 13px;
+            border-radius: 999px; font-size: .78rem; font-weight: 600; }
+    .item { display: flex; gap: 13px; align-items: center; padding: 16px 22px;
+            border-bottom: 1px solid #f0f2f5; }
+    .item-name { flex: 1; font-weight: 500; }
+    .item-price { color: #48515f; }
+    .dot { width: 15px; height: 15px; border-radius: 3px; border: 1.5px solid currentColor;
+           position: relative; flex: none; }
+    .dot::after { content:''; position:absolute; inset:0; margin:auto; width:7px; height:7px;
+                  border-radius:50%; background: currentColor; }
+    .veg { color: #1a8a4a; } .nonveg { color: #c1440e; }
+    button { font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer;
+             border: 0; background: #d97706; color: #fff; padding: 7px 15px;
+             border-radius: 10px; }
+    .note { padding: 20px 22px; background: #fdf3e4; border-bottom: 1px solid #e4e7ec;
+            font-size: .93rem; line-height: 1.6; }
+    .note b { display: block; margin-bottom: 6px; }
+    .note ol { margin: 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <div class="header">
+      <h1>Campus Canteen</h1>
+      <span class="pill">Cart: 0</span>
+    </div>
+
+    <div class="note">
+      <b>Three tasks — open this file in your editor</b>
+      <ol>
+        <li>Change "Masala Dosa" to your favourite dish</li>
+        <li>Add a <strong>fourth</strong> dish by copying a block</li>
+        <li>Now raise <strong>every</strong> price by ₹5</li>
+      </ol>
+    </div>
+
+    <!-- ── dish 1 ───────────────────────────────────────── -->
+    <article class="item">
+      <span class="dot veg"></span>
+      <span class="item-name">Masala Dosa</span>
+      <span class="item-price">₹50</span>
+      <button>Add</button>
+    </article>
+
+    <!-- ── dish 2 ───────────────────────────────────────── -->
+    <article class="item">
+      <span class="dot veg"></span>
+      <span class="item-name">Puttu &amp; Kadala</span>
+      <span class="item-price">₹40</span>
+      <button>Add</button>
+    </article>
+
+    <!-- ── dish 3 ───────────────────────────────────────── -->
+    <article class="item">
+      <span class="dot nonveg"></span>
+      <span class="item-name">Chicken Biriyani</span>
+      <span class="item-price">₹140</span>
+      <button>Add</button>
+    </article>
+
+    <!-- ── dish 4 goes here. Copy a block above. ─────────── -->
+
+  </div>
+</body>
+</html>

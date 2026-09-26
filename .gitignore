@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+
+# instructor-only notes, kept out of the student repo
+INSTRUCTOR.md
+test.md
